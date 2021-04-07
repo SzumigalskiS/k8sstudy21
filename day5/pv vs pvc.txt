@@ -1,0 +1,22 @@
+apiVersion: v1                  apiversion: v1
+kind: PersistentVolume          kind: PersistentVolumeClaim
+metadata:                       metadata:
+  name: pv                        name: pv-claim
+spec:                           spec:
+  accessModes:                    accessModes:
+  - ReadWriteOnce                 - ReadWriteOnce
+  storageClassName: fast          storageClassName: fast
+  capacity:                       resources:
+    storage: 10GI                   requests:
+                                      storage: 10GI
+
+
+
+Volume can have 3 accessModes:
+
+ReadWriteOnce - define a PersistentVolume that can only be mounted as Read/Write by single PersistentVolumeClaim.
+
+ReadWriteMany - define a PersistentVolume that can be bound Read/Write by multiple PersistentVolumeClaim. This mode is only supported 
+                by file and object storage like NFS. Block storage only ssupports ReadWriteOnce
+
+ReadOnlyMany - defines a PersistentVolume that can be bound by multiple PersistentVolumeClaim as Read-Only
