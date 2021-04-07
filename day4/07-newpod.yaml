@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: newpods
+  namespace: studygroup
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: busybox
+  template:
+    metadata:
+      labels:
+        tier: busybox
+    spec:
+      containers:
+      - command:
+        - sleep
+        - "1000"
+        image: busybox
+        name: busybox

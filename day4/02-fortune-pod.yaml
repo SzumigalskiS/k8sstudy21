@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    labels:
+        run: fortune
+    name: fortune
+spec:
+    containers:
+        - image: szumigalskis/tamday:second
+          name: html-generator
+          
