@@ -1,0 +1,9 @@
+
+metadata:
+  name: test-conf
+data:
+  test.conf: |
+    env = plex-test
+    endpoint = 10.10.0.0:31900
+    char= utf8
+  

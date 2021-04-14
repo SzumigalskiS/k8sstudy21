@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envpod
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    env:
+      - name: FIRSTNAME
+        valueFrom:
+          configMapKeyRef:
+            name: mymap-yaml
+            key: firstname
+      - name: LASTNAME
+        valueFrom:
+          configMapKeyRef:
+            name: mymap-yaml
+            key: lastname
