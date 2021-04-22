@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-sa
+spec:
+  serviceAccountName: study-robot
+  automountServiceAccountToken: false
+  containers:
+  - name: nginx-sa
+    image: nginx

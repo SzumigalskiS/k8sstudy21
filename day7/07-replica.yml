@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    env: dev
+  name: app-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: dev
+      tier: frontend
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        bu: finance
+        env: dev
+        tier: frontend
+      name: app
+    spec:
+      containers:
+      - command:
+        - sleep
+        - "4800"
+        image: busybox
+        imagePullPolicy: Always
+        name: busybox
